@@ -1,0 +1,83 @@
+{
+  "eventing": {
+    "commerce": [
+      {
+        "events": [
+          {
+            "description": "Emitted after an order is persisted so downstream services can update fulfillment and customer views.",
+            "fields": [
+              {
+                "name": "entity_id"
+              },
+              {
+                "name": "increment_id"
+              },
+              {
+                "name": "state"
+              },
+              {
+                "name": "status"
+              }
+            ],
+            "label": "Order Saved",
+            "name": "observer.sales_order_save_commit_after",
+            "runtimeActions": [
+              "pinepapple-events/order-updated"
+            ]
+          },
+          {
+            "description": "Emitted after a product is saved so search, merchandising, and caches can refresh.",
+            "fields": [
+              {
+                "name": "entity_id"
+              },
+              {
+                "name": "sku"
+              },
+              {
+                "name": "updated_at"
+              }
+            ],
+            "label": "Product Saved",
+            "name": "observer.catalog_product_save_after",
+            "runtimeActions": [
+              "pinepapple-events/product-updated"
+            ]
+          },
+          {
+            "description": "Emitted after inventory changes so availability and service eligibility can refresh.",
+            "fields": [
+              {
+                "name": "sku"
+              },
+              {
+                "name": "source_code"
+              },
+              {
+                "name": "quantity"
+              },
+              {
+                "name": "status"
+              }
+            ],
+            "label": "Inventory Source Item Saved",
+            "name": "observer.inventory_source_item_save_after",
+            "runtimeActions": [
+              "pinepapple-events/inventory-updated"
+            ]
+          }
+        ],
+        "provider": {
+          "description": "Reactive order, catalog, inventory, and customer updates for Pinepapple experiences.",
+          "label": "Pinepapple Commerce Events"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "description": "Premium commerce platform for Pinepapple products, services, trade-ins, support, and operations.",
+    "displayName": "Pinepapple Commerce Platform",
+    "id": "pinepapple-commerce-platform",
+    "version": "1.0.0"
+  }
+}

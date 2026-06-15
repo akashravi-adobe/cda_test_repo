@@ -1,0 +1,14 @@
+{
+  "name": "pinepapple-commerce-platform",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@adobe/aio-commerce-lib-app": "^1.6.0",
+    "@adobe/aio-commerce-lib-config": "^1.5.0",
+    "@adobe/aio-commerce-sdk": "^1.3.0"
+  },
+  "description": "Premium commerce platform for Pinepapple products, services, trade-ins, support, and operations.",
+  "scripts": {
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
+  }
+}
